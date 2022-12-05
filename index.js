@@ -20,7 +20,7 @@ try{
 app.use(bodyParser.json({limit: '5mb'}));
 app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
 app.use(express.json())
-app.use(cors({origin:"*"}))
+app.use(cors())
 
 //Rota de aluno
 app.use(alunoRoute);
