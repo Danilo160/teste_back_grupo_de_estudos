@@ -2,35 +2,31 @@
 
 {
     "version": 2,
-    "headers": [
-        {
+    "rewrites": [
+          {
             "source": "/(.*)",
-            "headers": [
-                {
-                    "key": "cache-control",
-                    "value": "s-maxage=600"
-                },
-                {
-                    "key": "access-control-allow-origin",
-                    "value": "*"
-                }
-            ]
-        }
+            "destination": "/index.js"
+          }
     ],
-      "builds": [
-    {
-      "src": "index.js",
-      "use": "@now/node"
-    }
-  ],
-  "routes": [
-    {
-
-      "src": "/(.*)",
-
-      "dest": "index.js"
-    }
-  ]
+    "headers": [
+          {
+          "source": "/(.*)",
+          "headers" : [
+            {
+              "key" : "Access-Control-Allow-Origin",
+              "value" : "/*"
+            },
+            {
+              "key" : "Access-Control-Allow-Headers",
+              "value" : "Origin, X-Requested-With, Content-Type, Accept"
+            },
+            {
+              "key" : "Access-Control-Allow-Credentials",
+              "value" : "true"
+            }
+          ]
+        }
+    ]
 }
 
 
